@@ -13,6 +13,7 @@
         android:text="OUANTITY" />
 
     <TextView
+        android:id="@+id/quantity_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -25,5 +26,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="ORDER" />
+        android:text="ORDER"
+        android:onClick="submitOrder"/>
 </LinearLayout>
