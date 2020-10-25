@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,9 +20,22 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(1);
+        int n=2;
+        display( n);
+        displayPrice( n *5 );
     }
-
+    public void increment(View view) {
+        int n=3;
+        display( n);
+    }
+    public void decrement(View view) {
+        int n=1;
+        display( n);
+    }
+    private void displayPrice(int number) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
     /**
      * This method displays the given quantity value on the screen.
      */
