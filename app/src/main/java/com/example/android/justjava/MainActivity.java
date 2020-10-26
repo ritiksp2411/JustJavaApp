@@ -22,35 +22,35 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-//        String pricemes="Free";
-//        displayMessage(pricemes);
-        displayPrice(quantity * 5);
+        int priceofcoffee=calculatePrice();
+        String message=createOrderSummary(priceofcoffee);
+        displayMessage(message);
     }
-
+    private String createOrderSummary(int price){
+        String summary="Name: Ritik\n" + "Quantity: " + quantity + "\nTotal: $" + price + "\nThank You!!";
+        return summary;
+    }
     public void increment(View view) {
         quantity++;
-        display(quantity);
-        displayPrice(quantity * 5);
+        displayQuantity(quantity);
     }
 
     public void decrement(View view) {
         quantity--;
-        display(quantity);
-        displayPrice(quantity * 5);
+        displayQuantity(quantity);
     }
 
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
+    }
+    private int calculatePrice() {
+        return quantity * 5;
     }
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
